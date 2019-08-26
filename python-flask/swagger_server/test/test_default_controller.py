@@ -20,7 +20,7 @@ class TestDefaultController(BaseTestCase):
         Long Polling Data response after a fixed time
         """
         response = self.client.open(
-            '/Json/Get_Event',
+            '/Json/getEvent',
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -32,7 +32,7 @@ class TestDefaultController(BaseTestCase):
         """
         body = Body()
         response = self.client.open(
-            '/Json/Register',
+            '/Json/register',
             method='POST',
             data=json.dumps(body),
             content_type='application/json')
