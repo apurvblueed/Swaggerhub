@@ -36,24 +36,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200_1'
       x-openapi-router-controller: swagger_server.controllers.default_controller
-  /addNotification:
-    post:
-      summary: Add new Notification
-      operationId: add_notification_post
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/body_1'
-        required: true
-      responses:
-        200:
-          description: Successful Response upon adding new notification
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inline_response_200_2'
-      x-openapi-router-controller: swagger_server.controllers.default_controller
 components:
   schemas:
     inline_response_200:
@@ -101,63 +83,5 @@ components:
         Message: Message
         EventID: EventID
         QueueID: QueueID
-        Code: 0
-    addNotification_Notification_Data:
-      type: object
-      properties:
-        BookingID:
-          type: integer
-          description: Unique Booking ID of a customer
-          format: int32
-        BookingName:
-          type: string
-          description: The kind of booking being executed
-    body_1:
-      required:
-      - BookingID
-      - BookingName
-      - Notifcation_Body
-      - NotificationID
-      - Notification_Data
-      - Notification_Icon
-      - Notification_Title
-      - Notification_Type
-      - Read_Time
-      type: object
-      properties:
-        Notification_Body:
-          type: string
-          description: Body of the Notification
-        NotificationID:
-          type: integer
-          description: Unique ID of the notification
-          format: int32
-        Notification_Data:
-          $ref: '#/components/schemas/addNotification_Notification_Data'
-        Notification_Icon:
-          type: string
-          description: Icon of the notification being sent
-        Notification_Title:
-          type: string
-          description: Title of the Notification
-        Notification_Type:
-          type: string
-          description: Different kinds of Notifications
-        Read_Time:
-          type: integer
-          description: The time at which the Notification is read
-          format: int32
-    inline_response_200_2:
-      type: object
-      properties:
-        Code:
-          type: integer
-          description: Message Success/failure Code
-          format: int32
-        Message:
-          type: string
-          description: Describing the Success or Failure of Code
-      example:
-        Message: Message
         Code: 0
 
