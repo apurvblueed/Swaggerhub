@@ -1,0 +1,87 @@
+openapi: 3.0.0
+info:
+  title: Sandbox Chat Service API
+  description: Documentation of Chat Service API
+  version: 1.0.0
+servers:
+- url: https://mockteststart.getsandbox.com/Json
+paths:
+  /getEvent:
+    get:
+      summary: Long Polling Data response after a fixed time
+      operationId: get_event_get
+      responses:
+        200:
+          description: Either a new Notification or same.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+  /register:
+    post:
+      summary: Register using EventID if present.
+      operationId: register_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/body'
+        required: true
+      responses:
+        200:
+          description: Return required EventID and QueueID.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_1'
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+components:
+  schemas:
+    inline_response_200:
+      type: object
+      properties:
+        Code:
+          type: integer
+          description: Message Code
+          format: int32
+        Message:
+          type: object
+          description: Success or Failure Message
+      example:
+        Message: {}
+        Code: 0
+    body:
+      required:
+      - AccessToken
+      - EventID
+      type: object
+      properties:
+        EventID:
+          type: string
+          description: ID of a particular Event
+        AccessToken:
+          type: string
+          description: JWT Token
+    inline_response_200_1:
+      type: object
+      properties:
+        Code:
+          type: integer
+          description: Message Code
+          format: int32
+        Message:
+          type: string
+          description: Success or Failure Message
+        EventID:
+          type: string
+          description: Unique ID of a particular Event being accessed
+        QueueID:
+          type: string
+          description: Unique ID of queue inline of the Event being accessed.
+      example:
+        Message: Message
+        EventID: EventID
+        QueueID: QueueID
+        Code: 0
+
