@@ -46,10 +46,10 @@ components:
           description: Message Code
           format: int32
         Message:
-          type: string
+          type: object
           description: Success or Failure Message
       example:
-        Message: Message
+        Message: {}
         Code: 0
     body:
       required:

@@ -14,17 +14,17 @@ class InlineResponse200(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, code: int=None, message: str=None):  # noqa: E501
+    def __init__(self, code: int=None, message: object=None):  # noqa: E501
         """InlineResponse200 - a model defined in Swagger
 
         :param code: The code of this InlineResponse200.  # noqa: E501
         :type code: int
         :param message: The message of this InlineResponse200.  # noqa: E501
-        :type message: str
+        :type message: object
         """
         self.swagger_types = {
             'code': int,
-            'message': str
+            'message': object
         }
 
         self.attribute_map = {
@@ -69,24 +69,24 @@ class InlineResponse200(Model):
         self._code = code
 
     @property
-    def message(self) -> str:
+    def message(self) -> object:
         """Gets the message of this InlineResponse200.
 
         Success or Failure Message  # noqa: E501
 
         :return: The message of this InlineResponse200.
-        :rtype: str
+        :rtype: object
         """
         return self._message
 
     @message.setter
-    def message(self, message: str):
+    def message(self, message: object):
         """Sets the message of this InlineResponse200.
 
         Success or Failure Message  # noqa: E501
 
         :param message: The message of this InlineResponse200.
-        :type message: str
+        :type message: object
         """
 
         self._message = message
