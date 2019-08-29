@@ -17,6 +17,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/inline_response_200'
+      security:
+      - Acctoken: []
       x-openapi-router-controller: swagger_server.controllers.default_controller
   /register:
     post:
@@ -35,9 +37,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/inline_response_200_1'
+      security:
+      - Acctoken: []
       x-openapi-router-controller: swagger_server.controllers.default_controller
 components:
   schemas:
+    inline_response_200_1:
+      type: object
+      properties:
+        Code:
+          type: integer
+          description: Message Code
+          format: int32
+        Message:
+          type: string
+          description: Success or Failure Message
+        EventID:
+          type: string
+          description: Unique ID of a particular Event being accessed
+        QueueID:
+          type: string
+          description: Unique ID of queue inline of the Event being accessed.
+      example:
+        Message: Message
+        EventID: EventID
+        QueueID: QueueID
+        Code: 0
     inline_response_200:
       type: object
       properties:
@@ -63,25 +88,11 @@ components:
         AccessToken:
           type: string
           description: JWT Token
-    inline_response_200_1:
-      type: object
-      properties:
-        Code:
-          type: integer
-          description: Message Code
-          format: int32
-        Message:
-          type: string
-          description: Success or Failure Message
-        EventID:
-          type: string
-          description: Unique ID of a particular Event being accessed
-        QueueID:
-          type: string
-          description: Unique ID of queue inline of the Event being accessed.
-      example:
-        Message: Message
-        EventID: EventID
-        QueueID: QueueID
-        Code: 0
+  securitySchemes:
+    AccToken:
+      type: apiKey
+      description: AccessToken for authorization
+      name: AccessToken
+      in: header
+      x-apikeyInfoFunc: swagger_server.controllers.authorization_controller.check_AccToken
 
