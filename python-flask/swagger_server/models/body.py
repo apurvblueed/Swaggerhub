@@ -14,25 +14,20 @@ class Body(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, event_id: str=None, access_token: str=None):  # noqa: E501
+    def __init__(self, event_id: str=None):  # noqa: E501
         """Body - a model defined in Swagger
 
         :param event_id: The event_id of this Body.  # noqa: E501
         :type event_id: str
-        :param access_token: The access_token of this Body.  # noqa: E501
-        :type access_token: str
         """
         self.swagger_types = {
-            'event_id': str,
-            'access_token': str
+            'event_id': str
         }
 
         self.attribute_map = {
-            'event_id': 'EventID',
-            'access_token': 'AccessToken'
+            'event_id': 'EventID'
         }
         self._event_id = event_id
-        self._access_token = access_token
 
     @classmethod
     def from_dict(cls, dikt) -> 'Body':
@@ -69,28 +64,3 @@ class Body(Model):
             raise ValueError("Invalid value for `event_id`, must not be `None`")  # noqa: E501
 
         self._event_id = event_id
-
-    @property
-    def access_token(self) -> str:
-        """Gets the access_token of this Body.
-
-        JWT Token  # noqa: E501
-
-        :return: The access_token of this Body.
-        :rtype: str
-        """
-        return self._access_token
-
-    @access_token.setter
-    def access_token(self, access_token: str):
-        """Sets the access_token of this Body.
-
-        JWT Token  # noqa: E501
-
-        :param access_token: The access_token of this Body.
-        :type access_token: str
-        """
-        if access_token is None:
-            raise ValueError("Invalid value for `access_token`, must not be `None`")  # noqa: E501
-
-        self._access_token = access_token

@@ -78,16 +78,12 @@ components:
         Code: 0
     body:
       required:
-      - AccessToken
       - EventID
       type: object
       properties:
         EventID:
           type: string
           description: ID of a particular Event
-        AccessToken:
-          type: string
-          description: JWT Token
   securitySchemes:
     AccToken:
       type: apiKey
