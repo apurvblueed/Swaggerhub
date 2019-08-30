@@ -151,24 +151,19 @@ components:
     inline_response_200_1:
       type: object
       properties:
-        Code:
-          type: integer
-          description: Message Code
-          format: int32
-        Message:
+        result:
           type: string
           description: Success or Failure Message
-        EventID:
+        last_event_id:
           type: number
           description: Unique ID of a particular Event being accessed
-        QueueID:
+        queue_id:
           type: number
           description: Unique ID of queue inline of the Event being accessed.
       example:
-        Message: Message
-        EventID: 6.027456183070403
-        QueueID: 1.4658129805029452
-        Code: 0
+        result: result
+        last_event_id: 0.8008281904610115
+        queue_id: 6.027456183070403
     inline_response_200:
       type: object
       properties:

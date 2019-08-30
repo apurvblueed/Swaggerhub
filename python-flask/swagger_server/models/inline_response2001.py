@@ -14,34 +14,29 @@ class InlineResponse2001(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, code: int=None, message: str=None, event_id: float=None, queue_id: float=None):  # noqa: E501
+    def __init__(self, result: str=None, last_event_id: float=None, queue_id: float=None):  # noqa: E501
         """InlineResponse2001 - a model defined in Swagger
 
-        :param code: The code of this InlineResponse2001.  # noqa: E501
-        :type code: int
-        :param message: The message of this InlineResponse2001.  # noqa: E501
-        :type message: str
-        :param event_id: The event_id of this InlineResponse2001.  # noqa: E501
-        :type event_id: float
+        :param result: The result of this InlineResponse2001.  # noqa: E501
+        :type result: str
+        :param last_event_id: The last_event_id of this InlineResponse2001.  # noqa: E501
+        :type last_event_id: float
         :param queue_id: The queue_id of this InlineResponse2001.  # noqa: E501
         :type queue_id: float
         """
         self.swagger_types = {
-            'code': int,
-            'message': str,
-            'event_id': float,
+            'result': str,
+            'last_event_id': float,
             'queue_id': float
         }
 
         self.attribute_map = {
-            'code': 'Code',
-            'message': 'Message',
-            'event_id': 'EventID',
-            'queue_id': 'QueueID'
+            'result': 'result',
+            'last_event_id': 'last_event_id',
+            'queue_id': 'queue_id'
         }
-        self._code = code
-        self._message = message
-        self._event_id = event_id
+        self._result = result
+        self._last_event_id = last_event_id
         self._queue_id = queue_id
 
     @classmethod
@@ -56,73 +51,50 @@ class InlineResponse2001(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def code(self) -> int:
-        """Gets the code of this InlineResponse2001.
-
-        Message Code  # noqa: E501
-
-        :return: The code of this InlineResponse2001.
-        :rtype: int
-        """
-        return self._code
-
-    @code.setter
-    def code(self, code: int):
-        """Sets the code of this InlineResponse2001.
-
-        Message Code  # noqa: E501
-
-        :param code: The code of this InlineResponse2001.
-        :type code: int
-        """
-
-        self._code = code
-
-    @property
-    def message(self) -> str:
-        """Gets the message of this InlineResponse2001.
+    def result(self) -> str:
+        """Gets the result of this InlineResponse2001.
 
         Success or Failure Message  # noqa: E501
 
-        :return: The message of this InlineResponse2001.
+        :return: The result of this InlineResponse2001.
         :rtype: str
         """
-        return self._message
+        return self._result
 
-    @message.setter
-    def message(self, message: str):
-        """Sets the message of this InlineResponse2001.
+    @result.setter
+    def result(self, result: str):
+        """Sets the result of this InlineResponse2001.
 
         Success or Failure Message  # noqa: E501
 
-        :param message: The message of this InlineResponse2001.
-        :type message: str
+        :param result: The result of this InlineResponse2001.
+        :type result: str
         """
 
-        self._message = message
+        self._result = result
 
     @property
-    def event_id(self) -> float:
-        """Gets the event_id of this InlineResponse2001.
+    def last_event_id(self) -> float:
+        """Gets the last_event_id of this InlineResponse2001.
 
         Unique ID of a particular Event being accessed  # noqa: E501
 
-        :return: The event_id of this InlineResponse2001.
+        :return: The last_event_id of this InlineResponse2001.
         :rtype: float
         """
-        return self._event_id
+        return self._last_event_id
 
-    @event_id.setter
-    def event_id(self, event_id: float):
-        """Sets the event_id of this InlineResponse2001.
+    @last_event_id.setter
+    def last_event_id(self, last_event_id: float):
+        """Sets the last_event_id of this InlineResponse2001.
 
         Unique ID of a particular Event being accessed  # noqa: E501
 
-        :param event_id: The event_id of this InlineResponse2001.
-        :type event_id: float
+        :param last_event_id: The last_event_id of this InlineResponse2001.
+        :type last_event_id: float
         """
 
-        self._event_id = event_id
+        self._last_event_id = last_event_id
 
     @property
     def queue_id(self) -> float:
