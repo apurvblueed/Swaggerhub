@@ -30,9 +30,15 @@ paths:
       - Acctoken: []
       x-openapi-router-controller: swagger_server.controllers.default_controller
   /register:
-    get:
+    post:
       summary: Register using EventID if present.
-      operationId: register_get
+      operationId: register_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/body'
+        required: true
       responses:
         200:
           description: Return required EventID and QueueID.
@@ -51,7 +57,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body'
+              $ref: '#/components/schemas/body_1'
         required: true
       responses:
         200:
@@ -65,68 +71,7 @@ paths:
       x-openapi-router-controller: swagger_server.controllers.default_controller
 components:
   schemas:
-    addNotification_Notification_Data:
-      type: object
-      properties:
-        BookingID:
-          type: integer
-          description: Unique Booking ID of a customer
-          format: int32
-        BookingName:
-          type: string
-          description: The kind of booking being executed
-    inline_response_200_1:
-      type: object
-      properties:
-        Code:
-          type: integer
-          description: Message Code
-          format: int32
-        Message:
-          type: string
-          description: Success or Failure Message
-        EventLength:
-          type: number
-          description: Unique ID of a particular Event being accessed
-        QueueID:
-          type: number
-          description: Unique ID of queue inline of the Event being accessed.
-      example:
-        Message: Message
-        EventLength: 6.027456183070403
-        QueueID: 1.4658129805029452
-        Code: 0
-    inline_response_200:
-      type: object
-      properties:
-        Code:
-          type: integer
-          description: Message Code
-          format: int32
-        Notifications:
-          type: object
-          description: Success or Failure Message
-        Last_Event_ID:
-          type: number
-          description: The ID of the Last Event that was sent
-      example:
-        Last_Event_ID: 6.027456183070403
-        Code: 0
-        Notifications: {}
-    inline_response_200_2:
-      type: object
-      properties:
-        Code:
-          type: integer
-          description: Message Success/failure Code
-          format: int32
-        Message:
-          type: string
-          description: Describing the Success or Failure of Code
-      example:
-        Message: Message
-        Code: 0
-    body:
+    body_1:
       required:
       - BookingID
       - BookingName
@@ -171,6 +116,75 @@ components:
           type: integer
           description: QueueID attained after registering through resgister event.
           format: int32
+    addNotification_Notification_Data:
+      type: object
+      properties:
+        BookingID:
+          type: integer
+          description: Unique Booking ID of a customer
+          format: int32
+        BookingName:
+          type: string
+          description: The kind of booking being executed
+    inline_response_200_1:
+      type: object
+      properties:
+        Code:
+          type: integer
+          description: Message Code
+          format: int32
+        Message:
+          type: string
+          description: Success or Failure Message
+        EventID:
+          type: number
+          description: Unique ID of a particular Event being accessed
+        QueueID:
+          type: number
+          description: Unique ID of queue inline of the Event being accessed.
+      example:
+        Message: Message
+        EventID: 6.027456183070403
+        QueueID: 1.4658129805029452
+        Code: 0
+    inline_response_200:
+      type: object
+      properties:
+        Code:
+          type: integer
+          description: Message Code
+          format: int32
+        Notifications:
+          type: object
+          description: Success or Failure Message
+        Last_Event_ID:
+          type: number
+          description: The ID of the Last Event that was sent
+      example:
+        Last_Event_ID: 6.027456183070403
+        Code: 0
+        Notifications: {}
+    inline_response_200_2:
+      type: object
+      properties:
+        Code:
+          type: integer
+          description: Message Success/failure Code
+          format: int32
+        Message:
+          type: string
+          description: Describing the Success or Failure of Code
+      example:
+        Message: Message
+        Code: 0
+    body:
+      required:
+      - Event_Types
+      type: object
+      properties:
+        Event_Types:
+          type: string
+          description: type of event
   securitySchemes:
     AccToken:
       type: apiKey
