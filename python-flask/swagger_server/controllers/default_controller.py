@@ -3,6 +3,7 @@ import six
 
 from swagger_server.models.body import Body  # noqa: E501
 from swagger_server.models.body1 import Body1  # noqa: E501
+from swagger_server.models.body2 import Body2  # noqa: E501
 from swagger_server.models.inline_response200 import InlineResponse200  # noqa: E501
 from swagger_server.models.inline_response2001 import InlineResponse2001  # noqa: E501
 from swagger_server.models.inline_response2002 import InlineResponse2002  # noqa: E501
@@ -20,20 +21,22 @@ def add_notification_post(body):  # noqa: E501
     :rtype: InlineResponse2002
     """
     if connexion.request.is_json:
-        body = Body1.from_dict(connexion.request.get_json())  # noqa: E501
+        body = Body2.from_dict(connexion.request.get_json())  # noqa: E501
     return 'do some magic!'
 
 
-def get_event_get(queue_id):  # noqa: E501
+def get_event_post(body):  # noqa: E501
     """Long Polling Data response after a fixed time
 
      # noqa: E501
 
-    :param queue_id: Unique QueueID obtained using register method
-    :type queue_id: float
+    :param body: 
+    :type body: dict | bytes
 
     :rtype: InlineResponse200
     """
+    if connexion.request.is_json:
+        body = Body.from_dict(connexion.request.get_json())  # noqa: E501
     return 'do some magic!'
 
 
@@ -48,5 +51,5 @@ def register_post(body):  # noqa: E501
     :rtype: InlineResponse2001
     """
     if connexion.request.is_json:
-        body = Body.from_dict(connexion.request.get_json())  # noqa: E501
+        body = Body1.from_dict(connexion.request.get_json())  # noqa: E501
     return 'do some magic!'

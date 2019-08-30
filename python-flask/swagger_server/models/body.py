@@ -14,20 +14,25 @@ class Body(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, event_types: str=None):  # noqa: E501
+    def __init__(self, queue_id: int=None, last_event_id: int=None):  # noqa: E501
         """Body - a model defined in Swagger
 
-        :param event_types: The event_types of this Body.  # noqa: E501
-        :type event_types: str
+        :param queue_id: The queue_id of this Body.  # noqa: E501
+        :type queue_id: int
+        :param last_event_id: The last_event_id of this Body.  # noqa: E501
+        :type last_event_id: int
         """
         self.swagger_types = {
-            'event_types': str
+            'queue_id': int,
+            'last_event_id': int
         }
 
         self.attribute_map = {
-            'event_types': 'Event_Types'
+            'queue_id': 'QueueID',
+            'last_event_id': 'LastEventID'
         }
-        self._event_types = event_types
+        self._queue_id = queue_id
+        self._last_event_id = last_event_id
 
     @classmethod
     def from_dict(cls, dikt) -> 'Body':
@@ -41,26 +46,51 @@ class Body(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def event_types(self) -> str:
-        """Gets the event_types of this Body.
+    def queue_id(self) -> int:
+        """Gets the queue_id of this Body.
 
-        type of event  # noqa: E501
+        Unique QueueID of a particular user who has registered  # noqa: E501
 
-        :return: The event_types of this Body.
-        :rtype: str
+        :return: The queue_id of this Body.
+        :rtype: int
         """
-        return self._event_types
+        return self._queue_id
 
-    @event_types.setter
-    def event_types(self, event_types: str):
-        """Sets the event_types of this Body.
+    @queue_id.setter
+    def queue_id(self, queue_id: int):
+        """Sets the queue_id of this Body.
 
-        type of event  # noqa: E501
+        Unique QueueID of a particular user who has registered  # noqa: E501
 
-        :param event_types: The event_types of this Body.
-        :type event_types: str
+        :param queue_id: The queue_id of this Body.
+        :type queue_id: int
         """
-        if event_types is None:
-            raise ValueError("Invalid value for `event_types`, must not be `None`")  # noqa: E501
+        if queue_id is None:
+            raise ValueError("Invalid value for `queue_id`, must not be `None`")  # noqa: E501
 
-        self._event_types = event_types
+        self._queue_id = queue_id
+
+    @property
+    def last_event_id(self) -> int:
+        """Gets the last_event_id of this Body.
+
+        Last event id being acknowledged  # noqa: E501
+
+        :return: The last_event_id of this Body.
+        :rtype: int
+        """
+        return self._last_event_id
+
+    @last_event_id.setter
+    def last_event_id(self, last_event_id: int):
+        """Sets the last_event_id of this Body.
+
+        Last event id being acknowledged  # noqa: E501
+
+        :param last_event_id: The last_event_id of this Body.
+        :type last_event_id: int
+        """
+        if last_event_id is None:
+            raise ValueError("Invalid value for `last_event_id`, must not be `None`")  # noqa: E501
+
+        self._last_event_id = last_event_id

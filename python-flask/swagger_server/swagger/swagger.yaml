@@ -7,18 +7,15 @@ servers:
 - url: https://mockteststart.getsandbox.com/Json
 paths:
   /getEvent:
-    get:
+    post:
       summary: Long Polling Data response after a fixed time
-      operationId: get_event_get
-      parameters:
-      - name: QueueID
-        in: query
-        description: Unique QueueID obtained using register method
+      operationId: get_event_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/body'
         required: true
-        style: form
-        explode: true
-        schema:
-          type: number
       responses:
         200:
           description: Either a new Notification or same.
@@ -37,7 +34,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body'
+              $ref: '#/components/schemas/body_1'
         required: true
       responses:
         200:
@@ -57,7 +54,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_1'
+              $ref: '#/components/schemas/body_2'
         required: true
       responses:
         200:
@@ -72,6 +69,14 @@ paths:
 components:
   schemas:
     body_1:
+      required:
+      - Event_Types
+      type: object
+      properties:
+        Event_Types:
+          type: string
+          description: type of event
+    body_2:
       required:
       - BookingID
       - BookingName
@@ -189,12 +194,18 @@ components:
         Code: 0
     body:
       required:
-      - Event_Types
+      - LastEventID
+      - QueueID
       type: object
       properties:
-        Event_Types:
-          type: string
-          description: type of event
+        QueueID:
+          type: integer
+          description: Unique QueueID of a particular user who has registered
+          format: int32
+        LastEventID:
+          type: integer
+          description: Last event id being acknowledged
+          format: int32
   securitySchemes:
     AccToken:
       type: apiKey
