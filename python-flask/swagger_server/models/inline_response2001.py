@@ -14,34 +14,34 @@ class InlineResponse2001(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, code: int=None, message: str=None, event_id: str=None, queue_id: str=None):  # noqa: E501
+    def __init__(self, code: int=None, message: str=None, event_length: float=None, queue_id: float=None):  # noqa: E501
         """InlineResponse2001 - a model defined in Swagger
 
         :param code: The code of this InlineResponse2001.  # noqa: E501
         :type code: int
         :param message: The message of this InlineResponse2001.  # noqa: E501
         :type message: str
-        :param event_id: The event_id of this InlineResponse2001.  # noqa: E501
-        :type event_id: str
+        :param event_length: The event_length of this InlineResponse2001.  # noqa: E501
+        :type event_length: float
         :param queue_id: The queue_id of this InlineResponse2001.  # noqa: E501
-        :type queue_id: str
+        :type queue_id: float
         """
         self.swagger_types = {
             'code': int,
             'message': str,
-            'event_id': str,
-            'queue_id': str
+            'event_length': float,
+            'queue_id': float
         }
 
         self.attribute_map = {
             'code': 'Code',
             'message': 'Message',
-            'event_id': 'EventID',
+            'event_length': 'EventLength',
             'queue_id': 'QueueID'
         }
         self._code = code
         self._message = message
-        self._event_id = event_id
+        self._event_length = event_length
         self._queue_id = queue_id
 
     @classmethod
@@ -102,47 +102,47 @@ class InlineResponse2001(Model):
         self._message = message
 
     @property
-    def event_id(self) -> str:
-        """Gets the event_id of this InlineResponse2001.
+    def event_length(self) -> float:
+        """Gets the event_length of this InlineResponse2001.
 
         Unique ID of a particular Event being accessed  # noqa: E501
 
-        :return: The event_id of this InlineResponse2001.
-        :rtype: str
+        :return: The event_length of this InlineResponse2001.
+        :rtype: float
         """
-        return self._event_id
+        return self._event_length
 
-    @event_id.setter
-    def event_id(self, event_id: str):
-        """Sets the event_id of this InlineResponse2001.
+    @event_length.setter
+    def event_length(self, event_length: float):
+        """Sets the event_length of this InlineResponse2001.
 
         Unique ID of a particular Event being accessed  # noqa: E501
 
-        :param event_id: The event_id of this InlineResponse2001.
-        :type event_id: str
+        :param event_length: The event_length of this InlineResponse2001.
+        :type event_length: float
         """
 
-        self._event_id = event_id
+        self._event_length = event_length
 
     @property
-    def queue_id(self) -> str:
+    def queue_id(self) -> float:
         """Gets the queue_id of this InlineResponse2001.
 
         Unique ID of queue inline of the Event being accessed.  # noqa: E501
 
         :return: The queue_id of this InlineResponse2001.
-        :rtype: str
+        :rtype: float
         """
         return self._queue_id
 
     @queue_id.setter
-    def queue_id(self, queue_id: str):
+    def queue_id(self, queue_id: float):
         """Sets the queue_id of this InlineResponse2001.
 
         Unique ID of queue inline of the Event being accessed.  # noqa: E501
 
         :param queue_id: The queue_id of this InlineResponse2001.
-        :type queue_id: str
+        :type queue_id: float
         """
 
         self._queue_id = queue_id
