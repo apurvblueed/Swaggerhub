@@ -82,8 +82,11 @@ components:
       type: object
       properties:
         event_types:
-          type: object
+          type: array
           description: type of event
+          items:
+            type: string
+            example: notifications
     body_2:
       required:
       - BookingID
