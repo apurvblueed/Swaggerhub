@@ -100,7 +100,7 @@ class InlineResponse200(Model):
     def last_event_id(self) -> float:
         """Gets the last_event_id of this InlineResponse200.
 
-        The last Event that was sent  # noqa: E501
+        The ID of the Last Event that was sent  # noqa: E501
 
         :return: The last_event_id of this InlineResponse200.
         :rtype: float
@@ -111,7 +111,7 @@ class InlineResponse200(Model):
     def last_event_id(self, last_event_id: float):
         """Sets the last_event_id of this InlineResponse200.
 
-        The last Event that was sent  # noqa: E501
+        The ID of the Last Event that was sent  # noqa: E501
 
         :param last_event_id: The last_event_id of this InlineResponse200.
         :type last_event_id: float

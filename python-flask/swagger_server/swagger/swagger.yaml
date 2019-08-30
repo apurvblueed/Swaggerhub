@@ -108,7 +108,7 @@ components:
           description: Success or Failure Message
         Last_Event_ID:
           type: number
-          description: The last Event that was sent
+          description: The ID of the Last Event that was sent
       example:
         Last_Event_ID: 6.027456183070403
         Code: 0
