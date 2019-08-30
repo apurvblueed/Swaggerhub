@@ -9,3 +9,4 @@ from swagger_server.models.body1 import Body1
 from swagger_server.models.inline_response200 import InlineResponse200
 from swagger_server.models.inline_response2001 import InlineResponse2001
 from swagger_server.models.inline_response2002 import InlineResponse2002
+from swagger_server.models.inline_response200_event import InlineResponse200Event
