@@ -14,25 +14,30 @@ class InlineResponse200(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, code: int=None, message: object=None):  # noqa: E501
+    def __init__(self, code: int=None, notifications: object=None, last_event_id: float=None):  # noqa: E501
         """InlineResponse200 - a model defined in Swagger
 
         :param code: The code of this InlineResponse200.  # noqa: E501
         :type code: int
-        :param message: The message of this InlineResponse200.  # noqa: E501
-        :type message: object
+        :param notifications: The notifications of this InlineResponse200.  # noqa: E501
+        :type notifications: object
+        :param last_event_id: The last_event_id of this InlineResponse200.  # noqa: E501
+        :type last_event_id: float
         """
         self.swagger_types = {
             'code': int,
-            'message': object
+            'notifications': object,
+            'last_event_id': float
         }
 
         self.attribute_map = {
             'code': 'Code',
-            'message': 'Message'
+            'notifications': 'Notifications',
+            'last_event_id': 'Last_Event_ID'
         }
         self._code = code
-        self._message = message
+        self._notifications = notifications
+        self._last_event_id = last_event_id
 
     @classmethod
     def from_dict(cls, dikt) -> 'InlineResponse200':
@@ -69,24 +74,47 @@ class InlineResponse200(Model):
         self._code = code
 
     @property
-    def message(self) -> object:
-        """Gets the message of this InlineResponse200.
+    def notifications(self) -> object:
+        """Gets the notifications of this InlineResponse200.
 
         Success or Failure Message  # noqa: E501
 
-        :return: The message of this InlineResponse200.
+        :return: The notifications of this InlineResponse200.
         :rtype: object
         """
-        return self._message
+        return self._notifications
 
-    @message.setter
-    def message(self, message: object):
-        """Sets the message of this InlineResponse200.
+    @notifications.setter
+    def notifications(self, notifications: object):
+        """Sets the notifications of this InlineResponse200.
 
         Success or Failure Message  # noqa: E501
 
-        :param message: The message of this InlineResponse200.
-        :type message: object
+        :param notifications: The notifications of this InlineResponse200.
+        :type notifications: object
         """
 
-        self._message = message
+        self._notifications = notifications
+
+    @property
+    def last_event_id(self) -> float:
+        """Gets the last_event_id of this InlineResponse200.
+
+        The last Event that was sent  # noqa: E501
+
+        :return: The last_event_id of this InlineResponse200.
+        :rtype: float
+        """
+        return self._last_event_id
+
+    @last_event_id.setter
+    def last_event_id(self, last_event_id: float):
+        """Sets the last_event_id of this InlineResponse200.
+
+        The last Event that was sent  # noqa: E501
+
+        :param last_event_id: The last_event_id of this InlineResponse200.
+        :type last_event_id: float
+        """
+
+        self._last_event_id = last_event_id

@@ -10,6 +10,15 @@ paths:
     get:
       summary: Long Polling Data response after a fixed time
       operationId: get_event_get
+      parameters:
+      - name: QueueID
+        in: query
+        description: Unique QueueID obtained using register method
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: number
       responses:
         200:
           description: Either a new Notification or same.
@@ -94,12 +103,16 @@ components:
           type: integer
           description: Message Code
           format: int32
-        Message:
+        Notifications:
           type: object
           description: Success or Failure Message
+        Last_Event_ID:
+          type: number
+          description: The last Event that was sent
       example:
-        Message: {}
+        Last_Event_ID: 6.027456183070403
         Code: 0
+        Notifications: {}
     inline_response_200_2:
       type: object
       properties:

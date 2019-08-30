@@ -34,9 +34,11 @@ class TestDefaultController(BaseTestCase):
 
         Long Polling Data response after a fixed time
         """
+        query_string = [('queue_id', 1.2)]
         response = self.client.open(
             '/Json/getEvent',
-            method='GET')
+            method='GET',
+            query_string=query_string)
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
 

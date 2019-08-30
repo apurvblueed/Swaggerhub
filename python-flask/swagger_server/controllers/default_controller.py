@@ -23,11 +23,13 @@ def add_notification_post(body):  # noqa: E501
     return 'do some magic!'
 
 
-def get_event_get():  # noqa: E501
+def get_event_get(queue_id):  # noqa: E501
     """Long Polling Data response after a fixed time
 
      # noqa: E501
 
+    :param queue_id: Unique QueueID obtained using register method
+    :type queue_id: float
 
     :rtype: InlineResponse200
     """
