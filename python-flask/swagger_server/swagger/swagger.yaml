@@ -78,7 +78,7 @@ components:
         Notifications: {}
     body_1:
       required:
-      - Event_Types
+      - event_types
       type: object
       properties:
         Event_Types:
@@ -182,15 +182,15 @@ components:
         Code: 0
     body:
       required:
-      - LastEventID
-      - QueueID
+      - last_event_id
+      - queue_id
       type: object
       properties:
-        QueueID:
+        queue_id:
           type: integer
           description: Unique QueueID of a particular user who has registered
           format: int32
-        LastEventID:
+        last_event_id:
           type: integer
           description: Last event id being acknowledged
           format: int32

@@ -60,7 +60,5 @@ class Body1(Model):
         :param event_types: The event_types of this Body1.
         :type event_types: str
         """
-        if event_types is None:
-            raise ValueError("Invalid value for `event_types`, must not be `None`")  # noqa: E501
 
         self._event_types = event_types

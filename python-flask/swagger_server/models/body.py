@@ -28,8 +28,8 @@ class Body(Model):
         }
 
         self.attribute_map = {
-            'queue_id': 'QueueID',
-            'last_event_id': 'LastEventID'
+            'queue_id': 'queue_id',
+            'last_event_id': 'last_event_id'
         }
         self._queue_id = queue_id
         self._last_event_id = last_event_id
