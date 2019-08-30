@@ -81,8 +81,8 @@ components:
       - event_types
       type: object
       properties:
-        Event_Types:
-          type: string
+        event_types:
+          type: object
           description: type of event
     body_2:
       required:
@@ -148,13 +148,15 @@ components:
         last_event_id:
           type: number
           description: Unique ID of a particular Event being accessed
+          example: -1
         queue_id:
           type: number
           description: Unique ID of queue inline of the Event being accessed.
+          example: 6.4572566E+8
       example:
         result: result
-        last_event_id: 0.8008281904610115
-        queue_id: 6.027456183070403
+        last_event_id: -1
+        queue_id: 6.4572566E+8
     inline_response_200:
       type: object
       properties:
@@ -190,10 +192,12 @@ components:
           type: integer
           description: Unique QueueID of a particular user who has registered
           format: int32
+          example: 645725660
         last_event_id:
           type: integer
           description: Last event id being acknowledged
           format: int32
+          example: 5
   securitySchemes:
     AccToken:
       type: apiKey

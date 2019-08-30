@@ -14,18 +14,18 @@ class Body1(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, event_types: str=None):  # noqa: E501
+    def __init__(self, event_types: object=None):  # noqa: E501
         """Body1 - a model defined in Swagger
 
         :param event_types: The event_types of this Body1.  # noqa: E501
-        :type event_types: str
+        :type event_types: object
         """
         self.swagger_types = {
-            'event_types': str
+            'event_types': object
         }
 
         self.attribute_map = {
-            'event_types': 'Event_Types'
+            'event_types': 'event_types'
         }
         self._event_types = event_types
 
@@ -41,24 +41,26 @@ class Body1(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def event_types(self) -> str:
+    def event_types(self) -> object:
         """Gets the event_types of this Body1.
 
         type of event  # noqa: E501
 
         :return: The event_types of this Body1.
-        :rtype: str
+        :rtype: object
         """
         return self._event_types
 
     @event_types.setter
-    def event_types(self, event_types: str):
+    def event_types(self, event_types: object):
         """Sets the event_types of this Body1.
 
         type of event  # noqa: E501
 
         :param event_types: The event_types of this Body1.
-        :type event_types: str
+        :type event_types: object
         """
+        if event_types is None:
+            raise ValueError("Invalid value for `event_types`, must not be `None`")  # noqa: E501
 
         self._event_types = event_types
