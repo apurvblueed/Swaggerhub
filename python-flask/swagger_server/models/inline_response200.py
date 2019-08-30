@@ -6,7 +6,7 @@ from datetime import date, datetime  # noqa: F401
 from typing import List, Dict  # noqa: F401
 
 from swagger_server.models.base_model_ import Model
-from swagger_server.models.inline_response200_event import InlineResponse200Event  # noqa: F401,E501
+from swagger_server.models.inline_response200_events import InlineResponse200Events  # noqa: F401,E501
 from swagger_server import util
 
 
@@ -15,20 +15,25 @@ class InlineResponse200(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, event: InlineResponse200Event=None):  # noqa: E501
+    def __init__(self, events: InlineResponse200Events=None, result: str=None):  # noqa: E501
         """InlineResponse200 - a model defined in Swagger
 
-        :param event: The event of this InlineResponse200.  # noqa: E501
-        :type event: InlineResponse200Event
+        :param events: The events of this InlineResponse200.  # noqa: E501
+        :type events: InlineResponse200Events
+        :param result: The result of this InlineResponse200.  # noqa: E501
+        :type result: str
         """
         self.swagger_types = {
-            'event': InlineResponse200Event
+            'events': InlineResponse200Events,
+            'result': str
         }
 
         self.attribute_map = {
-            'event': 'Event'
+            'events': 'events',
+            'result': 'result'
         }
-        self._event = event
+        self._events = events
+        self._result = result
 
     @classmethod
     def from_dict(cls, dikt) -> 'InlineResponse200':
@@ -42,22 +47,45 @@ class InlineResponse200(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def event(self) -> InlineResponse200Event:
-        """Gets the event of this InlineResponse200.
+    def events(self) -> InlineResponse200Events:
+        """Gets the events of this InlineResponse200.
 
 
-        :return: The event of this InlineResponse200.
-        :rtype: InlineResponse200Event
+        :return: The events of this InlineResponse200.
+        :rtype: InlineResponse200Events
         """
-        return self._event
+        return self._events
 
-    @event.setter
-    def event(self, event: InlineResponse200Event):
-        """Sets the event of this InlineResponse200.
+    @events.setter
+    def events(self, events: InlineResponse200Events):
+        """Sets the events of this InlineResponse200.
 
 
-        :param event: The event of this InlineResponse200.
-        :type event: InlineResponse200Event
+        :param events: The events of this InlineResponse200.
+        :type events: InlineResponse200Events
         """
 
-        self._event = event
+        self._events = events
+
+    @property
+    def result(self) -> str:
+        """Gets the result of this InlineResponse200.
+
+        If the call was success or not  # noqa: E501
+
+        :return: The result of this InlineResponse200.
+        :rtype: str
+        """
+        return self._result
+
+    @result.setter
+    def result(self, result: str):
+        """Sets the result of this InlineResponse200.
+
+        If the call was success or not  # noqa: E501
+
+        :param result: The result of this InlineResponse200.
+        :type result: str
+        """
+
+        self._result = result

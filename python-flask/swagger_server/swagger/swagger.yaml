@@ -68,6 +68,14 @@ paths:
       x-openapi-router-controller: swagger_server.controllers.default_controller
 components:
   schemas:
+    inline_response_200_events:
+      type: object
+      properties:
+        Notifications:
+          type: object
+          description: Success or Failure Message
+      example:
+        Notifications: {}
     body_1:
       required:
       - Event_Types
@@ -131,23 +139,6 @@ components:
         BookingName:
           type: string
           description: The kind of booking being executed
-    inline_response_200_Event:
-      type: object
-      properties:
-        Code:
-          type: integer
-          description: Message Code
-          format: int32
-        Notifications:
-          type: object
-          description: Success or Failure Message
-        Last_Event_ID:
-          type: number
-          description: The ID of the Last Event that was sent
-      example:
-        Last_Event_ID: 6.027456183070403
-        Code: 0
-        Notifications: {}
     inline_response_200_1:
       type: object
       properties:
@@ -167,12 +158,14 @@ components:
     inline_response_200:
       type: object
       properties:
-        Event:
-          $ref: '#/components/schemas/inline_response_200_Event'
+        events:
+          $ref: '#/components/schemas/inline_response_200_events'
+        result:
+          type: string
+          description: If the call was success or not
       example:
-        Event:
-          Last_Event_ID: 6.027456183070403
-          Code: 0
+        result: result
+        events:
           Notifications: {}
     inline_response_200_2:
       type: object
