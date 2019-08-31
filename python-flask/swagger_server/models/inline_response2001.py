@@ -14,7 +14,7 @@ class InlineResponse2001(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, result: str=None, last_event_id: float=None, queue_id: float=None):  # noqa: E501
+    def __init__(self, result: str=None, last_event_id: float=None, queue_id: str=None):  # noqa: E501
         """InlineResponse2001 - a model defined in Swagger
 
         :param result: The result of this InlineResponse2001.  # noqa: E501
@@ -22,12 +22,12 @@ class InlineResponse2001(Model):
         :param last_event_id: The last_event_id of this InlineResponse2001.  # noqa: E501
         :type last_event_id: float
         :param queue_id: The queue_id of this InlineResponse2001.  # noqa: E501
-        :type queue_id: float
+        :type queue_id: str
         """
         self.swagger_types = {
             'result': str,
             'last_event_id': float,
-            'queue_id': float
+            'queue_id': str
         }
 
         self.attribute_map = {
@@ -97,24 +97,24 @@ class InlineResponse2001(Model):
         self._last_event_id = last_event_id
 
     @property
-    def queue_id(self) -> float:
+    def queue_id(self) -> str:
         """Gets the queue_id of this InlineResponse2001.
 
         Unique ID of queue inline of the Event being accessed.  # noqa: E501
 
         :return: The queue_id of this InlineResponse2001.
-        :rtype: float
+        :rtype: str
         """
         return self._queue_id
 
     @queue_id.setter
-    def queue_id(self, queue_id: float):
+    def queue_id(self, queue_id: str):
         """Sets the queue_id of this InlineResponse2001.
 
         Unique ID of queue inline of the Event being accessed.  # noqa: E501
 
         :param queue_id: The queue_id of this InlineResponse2001.
-        :type queue_id: float
+        :type queue_id: str
         """
 
         self._queue_id = queue_id

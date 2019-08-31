@@ -129,9 +129,8 @@ components:
           description: The time at which the Notification is sent.
           format: int32
         QueueID:
-          type: integer
+          type: string
           description: QueueID attained after registering through resgister event.
-          format: int32
     addNotification_Notification_Data:
       type: object
       properties:
@@ -153,13 +152,13 @@ components:
           description: Unique ID of a particular Event being accessed
           example: -1
         queue_id:
-          type: number
+          type: string
           description: Unique ID of queue inline of the Event being accessed.
-          example: 6.4572566E+8
+          example: "645725660"
       example:
         result: result
         last_event_id: -1
-        queue_id: 6.4572566E+8
+        queue_id: "645725660"
     inline_response_200:
       type: object
       properties:
@@ -192,10 +191,9 @@ components:
       type: object
       properties:
         queue_id:
-          type: integer
+          type: string
           description: Unique QueueID of a particular user who has registered
-          format: int32
-          example: 645725660
+          example: "645725660"
         last_event_id:
           type: integer
           description: Last event id being acknowledged

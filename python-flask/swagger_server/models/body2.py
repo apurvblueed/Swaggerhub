@@ -15,7 +15,7 @@ class Body2(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, notification_body: str=None, notification_id: int=None, notification_data: AddNotificationNotificationData=None, notification_icon: str=None, notification_title: str=None, notification_type: str=None, read_time: int=None, sent_at: int=None, queue_id: int=None):  # noqa: E501
+    def __init__(self, notification_body: str=None, notification_id: int=None, notification_data: AddNotificationNotificationData=None, notification_icon: str=None, notification_title: str=None, notification_type: str=None, read_time: int=None, sent_at: int=None, queue_id: str=None):  # noqa: E501
         """Body2 - a model defined in Swagger
 
         :param notification_body: The notification_body of this Body2.  # noqa: E501
@@ -35,7 +35,7 @@ class Body2(Model):
         :param sent_at: The sent_at of this Body2.  # noqa: E501
         :type sent_at: int
         :param queue_id: The queue_id of this Body2.  # noqa: E501
-        :type queue_id: int
+        :type queue_id: str
         """
         self.swagger_types = {
             'notification_body': str,
@@ -46,7 +46,7 @@ class Body2(Model):
             'notification_type': str,
             'read_time': int,
             'sent_at': int,
-            'queue_id': int
+            'queue_id': str
         }
 
         self.attribute_map = {
@@ -278,24 +278,24 @@ class Body2(Model):
         self._sent_at = sent_at
 
     @property
-    def queue_id(self) -> int:
+    def queue_id(self) -> str:
         """Gets the queue_id of this Body2.
 
         QueueID attained after registering through resgister event.  # noqa: E501
 
         :return: The queue_id of this Body2.
-        :rtype: int
+        :rtype: str
         """
         return self._queue_id
 
     @queue_id.setter
-    def queue_id(self, queue_id: int):
+    def queue_id(self, queue_id: str):
         """Sets the queue_id of this Body2.
 
         QueueID attained after registering through resgister event.  # noqa: E501
 
         :param queue_id: The queue_id of this Body2.
-        :type queue_id: int
+        :type queue_id: str
         """
         if queue_id is None:
             raise ValueError("Invalid value for `queue_id`, must not be `None`")  # noqa: E501
