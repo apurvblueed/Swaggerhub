@@ -190,9 +190,9 @@ components:
           description: Unique QueueID of a particular user who has registered
           example: "645725660"
         last_event_id:
-          type: string
+          type: number
           description: Last event id being acknowledged
-          example: "5"
+          example: 5
   securitySchemes:
     AccToken:
       type: apiKey
