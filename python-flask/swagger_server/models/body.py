@@ -14,17 +14,17 @@ class Body(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, queue_id: str=None, last_event_id: int=None):  # noqa: E501
+    def __init__(self, queue_id: str=None, last_event_id: str=None):  # noqa: E501
         """Body - a model defined in Swagger
 
         :param queue_id: The queue_id of this Body.  # noqa: E501
         :type queue_id: str
         :param last_event_id: The last_event_id of this Body.  # noqa: E501
-        :type last_event_id: int
+        :type last_event_id: str
         """
         self.swagger_types = {
             'queue_id': str,
-            'last_event_id': int
+            'last_event_id': str
         }
 
         self.attribute_map = {
@@ -71,24 +71,24 @@ class Body(Model):
         self._queue_id = queue_id
 
     @property
-    def last_event_id(self) -> int:
+    def last_event_id(self) -> str:
         """Gets the last_event_id of this Body.
 
         Last event id being acknowledged  # noqa: E501
 
         :return: The last_event_id of this Body.
-        :rtype: int
+        :rtype: str
         """
         return self._last_event_id
 
     @last_event_id.setter
-    def last_event_id(self, last_event_id: int):
+    def last_event_id(self, last_event_id: str):
         """Sets the last_event_id of this Body.
 
         Last event id being acknowledged  # noqa: E501
 
         :param last_event_id: The last_event_id of this Body.
-        :type last_event_id: int
+        :type last_event_id: str
         """
         if last_event_id is None:
             raise ValueError("Invalid value for `last_event_id`, must not be `None`")  # noqa: E501
