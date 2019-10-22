@@ -86,7 +86,7 @@ components:
           description: type of event
           items:
             type: string
-            example: notifications
+            example: Notifications
     body_2:
       required:
       - BookingID
