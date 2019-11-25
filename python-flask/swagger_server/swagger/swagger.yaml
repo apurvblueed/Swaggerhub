@@ -197,7 +197,7 @@ components:
     AccToken:
       type: apiKey
       description: AccessToken for authorization
-      name: AccessToken
+      name: Authorization
       in: header
       x-apikeyInfoFunc: swagger_server.controllers.authorization_controller.check_AccToken
 
